@@ -2,7 +2,7 @@
   closure-compiler = //closure/closure-compiler:closure-compiler
   closure-stylesheets = //closure/closure-stylesheets:closure-stylesheets
   closure-templates = //closure/closure-templates:closure-templates
-  plovr = //:plovr
+  plovr = //:plovr_app
 [java]
   src_roots = src, test, /closure/closure-compiler
 

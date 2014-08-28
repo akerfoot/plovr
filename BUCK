@@ -27,6 +27,12 @@ java_library(
   ],
 )
 
+java_binary(
+  name = 'plovr_app',
+  main_class = 'com.google.javascript.jscomp.CommandLineRunner',
+  deps = [':plovr']
+)
+
 java_test(
   name = 'test',
   srcs = glob(['test/**/*.java']),
