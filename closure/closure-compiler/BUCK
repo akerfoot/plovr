@@ -33,28 +33,24 @@ java_library(
   visibility = [ 'PUBLIC' ],
 )
 
-# This rule is hacky. It can be cleaned up once the following Buck issue is fixed:
-# https://github.com/facebook/buck/issues/19
+This rule is hacky. It can be cleaned up once the following Buck issue is fixed:
+https://github.com/facebook/buck/issues/19
 genrule(
   name = 'gen_rhino',
   srcs = [
     'lib/jarjar.jar',
     'jarjar-rules.txt',
-    genfile('lib/rhino/lib__rhino__output/rhino.jar'),
+    '//closure/closure-compiler/lib/rhino:rhino'
   ],
   cmd = 'java -jar $SRCDIR/lib/jarjar.jar process $SRCDIR/jarjar-rules.txt $SRCDIR/rhino.jar $OUT',
   out = 'rhino.jar',
-  deps = [
-    '//closure/closure-compiler/lib/rhino:rhino',
-  ],
+  deps = [],
 )
 
 prebuilt_jar(
   name = 'rhino',
-  binary_jar = genfile('rhino.jar'),
-  deps = [
-    ':gen_rhino',
-  ],
+  binary_jar = ':gen_rhino',
+  deps = [],
   visibility = [ 'PUBLIC' ],
 )
 

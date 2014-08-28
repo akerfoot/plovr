@@ -1,11 +1,10 @@
 java_library(
   name = 'closure-stylesheets',
-  srcs = glob(['src/**/*.java']) + [ genfile('parser.src.zip') ],
+  srcs = glob(['src/**/*.java']) + [ ':javacc' ],
   deps = [
     ':args4j',
     ':gson',
     ':guava',
-    ':javacc',
     ':jsr305',
   ],
   visibility = [

@@ -1,6 +1,6 @@
 java_library(
   name = 'closure-templates',
-  srcs = glob(['java/src/**/*.java']) + [ genfile('parser.src.zip') ],
+  srcs = glob(['java/src/**/*.java']) + [ ':javacc' ],
   resources = [
     'javascript/soyutils.js',
     'javascript/soyutils_usegoog.js',
@@ -14,7 +14,6 @@ java_library(
     ':guice-assistedinject',
     ':guice-multibindings',
     ':icu4j',
-    ':javacc',
     ':jsr305',
     ':jsr330',
     ':objenesis',
