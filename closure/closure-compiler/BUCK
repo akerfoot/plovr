@@ -30,31 +30,31 @@ java_library(
     ':jsr305',
     ':protobuf',
     ':externs',
-     ':rhino',
+#     ':rhino',
   ],
   visibility = [ 'PUBLIC' ],
 )
 
-This rule is hacky. It can be cleaned up once the following Buck issue is fixed:
-https://github.com/facebook/buck/issues/19
-genrule(
-  name = 'gen_rhino',
-  srcs = [
-    'lib/jarjar.jar',
-    'jarjar-rules.txt',
-    '//closure/closure-compiler/lib/rhino:rhino'
-  ],
-  cmd = 'java -jar $SRCDIR/lib/jarjar.jar process $SRCDIR/jarjar-rules.txt $SRCDIR/rhino.jar $OUT',
-  out = 'rhino.jar',
-  deps = [],
-)
-
-prebuilt_jar(
-  name = 'rhino',
-  binary_jar = ':gen_rhino',
-  deps = [],
-  visibility = [ 'PUBLIC' ],
-)
+# This rule is hacky. It can be cleaned up once the following Buck issue is fixed:
+# https://github.com/facebook/buck/issues/19
+# genrule(
+#   name = 'gen_rhino',
+#   srcs = [
+#     'lib/jarjar.jar',
+#     'jarjar-rules.txt',
+#     '//closure/closure-compiler/lib/rhino:rhino'
+#   ],
+#   cmd = 'java -jar $SRCDIR/lib/jarjar.jar process $SRCDIR/jarjar-rules.txt $SRCDIR/rhino.jar $OUT',
+#   out = 'rhino.jar',
+#   deps = [],
+# )
+# 
+# prebuilt_jar(
+#   name = 'rhino',
+#   binary_jar = ':gen_rhino',
+#   deps = [],
+#   visibility = [ 'PUBLIC' ],
+# )
 
 genrule(
   name = 'externs',

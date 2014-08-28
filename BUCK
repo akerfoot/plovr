@@ -19,7 +19,7 @@ java_library(
     '//closure/closure-compiler:json',
     '//closure/closure-compiler:jsr305',
     '//closure/closure-compiler:protobuf',
-    '//closure/closure-compiler:rhino',
+#    '//closure/closure-compiler:rhino',
     '//closure/closure-stylesheets:closure-stylesheets',
     '//closure/closure-templates:closure-templates',
     '//closure/closure-templates:guice',
