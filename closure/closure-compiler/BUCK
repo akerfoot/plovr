@@ -84,11 +84,6 @@ prebuilt_jar(
 )
 
 prebuilt_jar(
-  name = 'caja',
-  binary_jar = 'lib/caja-r4314.jar',
-)
-
-prebuilt_jar(
   name = 'guava',
   binary_jar = 'lib/guava.jar',
 )
