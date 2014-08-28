@@ -4,4 +4,5 @@
   closure-templates = //closure/closure-templates:closure-templates
   plovr = //:plovr
 [java]
-  src_roots = src, test
+  src_roots = src, test, /closure/closure-compiler
+

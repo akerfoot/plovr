@@ -1,11 +1,13 @@
 java_library(
   name = 'plovr',
   srcs = glob(['src/**/*.java']),
-  resources = glob([
-    'src/**/*.js',
-    'src/**/*.soy',
-    'src/**/*.ts',
-  ]),
+  resources = [
+    '//closure/closure-compiler:externs',
+    ] + glob([
+      'src/**/*.js',
+      'src/**/*.soy',
+      'src/**/*.ts',
+    ]),
   source = '7',
   target = '7',
   deps = [

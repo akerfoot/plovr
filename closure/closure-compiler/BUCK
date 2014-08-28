@@ -15,6 +15,7 @@ java_library(
         'src/com/google/javascript/rhino/testing/**/*.java',
       ]),
   resources = [
+    ':externs',
     'src/com/google/javascript/jscomp/parsing/ParserConfig.properties',
 
     # This needs to end up at
@@ -28,7 +29,8 @@ java_library(
     ':json',
     ':jsr305',
     ':protobuf',
-    ':rhino',
+    ':externs',
+     ':rhino',
   ],
   visibility = [ 'PUBLIC' ],
 )
@@ -50,6 +52,15 @@ genrule(
 prebuilt_jar(
   name = 'rhino',
   binary_jar = ':gen_rhino',
+  deps = [],
+  visibility = [ 'PUBLIC' ],
+)
+
+genrule(
+  name = 'externs',
+  srcs = glob(['externs/*.js']),
+  cmd = 'zip -j $OUT $SRCS',
+  out = 'externs.zip',
   deps = [],
   visibility = [ 'PUBLIC' ],
 )
